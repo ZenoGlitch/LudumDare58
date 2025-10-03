@@ -1,5 +1,49 @@
-[gd_scene format=3 uid="uid://dx1kl0geo11xe"]
+[gd_scene load_steps=2 format=3 uid="uid://dx1kl0geo11xe"]
+
+[ext_resource type="Script" uid="uid://df36pk2wi6ekn" path="res://Scripts/main_menu.gd" id="1_28flt"]
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_28flt")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="MainCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StartGameButton" type="Button" parent="MainCanvasLayer"]
+offset_left = 463.0
+offset_top = 214.0
+offset_right = 676.0
+offset_bottom = 283.0
+text = "Start game"
+
+[node name="CreditsButton" type="Button" parent="MainCanvasLayer"]
+offset_left = 463.0
+offset_top = 299.0
+offset_right = 676.0
+offset_bottom = 368.0
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="MainCanvasLayer"]
+offset_left = 463.0
+offset_top = 387.0
+offset_right = 676.0
+offset_bottom = 456.0
+text = "Quit"
+
+[node name="CreditsCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextEdit" type="TextEdit" parent="CreditsCanvasLayer"]
+offset_right = 1152.0
+offset_bottom = 652.0
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Some text goes here and whatnot"
+
+[node name="BackToMainButton" type="Button" parent="CreditsCanvasLayer"]
+offset_left = 464.0
+offset_top = 387.0
+offset_right = 676.0
+offset_bottom = 457.0
+text = "Back to main menu"
+
+[connection signal="button_up" from="MainCanvasLayer/StartGameButton" to="." method="_on_start_game_button_button_up"]
+[connection signal="button_up" from="MainCanvasLayer/CreditsButton" to="." method="_on_credits_button_button_up"]
+[connection signal="button_up" from="MainCanvasLayer/QuitButton" to="." method="_on_quit_button_button_up"]
+[connection signal="button_up" from="CreditsCanvasLayer/BackToMainButton" to="." method="_on_back_to_main_button_button_up"]
