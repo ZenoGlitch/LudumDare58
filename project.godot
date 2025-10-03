@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LudumDare58"
-run/main_scene="uid://dx1kl0geo11xe"
+run/main_scene="uid://dap4ayhc268nl"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

@@ -13,6 +13,8 @@ func _ready():
 	credits_canvas_layer.hide()
 
 func _on_start_game_button_button_up():
+	main_canvas_layer.hide()
+	self.queue_free()
 	pass # Replace with function body.
 
 func _on_credits_button_button_up():
