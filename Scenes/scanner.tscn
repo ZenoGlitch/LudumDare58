@@ -1,0 +1,84 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwav7gy0m7tjw"]
+
+[ext_resource type="Script" uid="uid://dwhtwit6xdn76" path="res://Scripts/scanner.gd" id="1_x4svg"]
+
+[node name="Scanner" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x4svg")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 216.0
+offset_bottom = 217.0
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 3
+
+[node name="Button" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+
+[node name="Button2" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "2"
+
+[node name="Button3" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "3"
+
+[node name="Button4" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "4"
+
+[node name="Button5" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "5"
+
+[node name="Button6" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "6"
+
+[node name="Button7" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "7"
+
+[node name="Button8" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "8"
+
+[node name="Button9" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "9"
+
+[connection signal="button_up" from="GridContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="GridContainer/Button2" to="." method="_on_button_2_button_up"]
+[connection signal="button_up" from="GridContainer/Button3" to="." method="_on_button_3_button_up"]
+[connection signal="button_up" from="GridContainer/Button4" to="." method="_on_button_4_button_up"]
+[connection signal="button_up" from="GridContainer/Button5" to="." method="_on_button_5_button_up"]
+[connection signal="button_up" from="GridContainer/Button6" to="." method="_on_button_6_button_up"]
+[connection signal="button_up" from="GridContainer/Button7" to="." method="_on_button_7_button_up"]
+[connection signal="button_up" from="GridContainer/Button8" to="." method="_on_button_8_button_up"]
+[connection signal="button_up" from="GridContainer/Button9" to="." method="_on_button_9_button_up"]

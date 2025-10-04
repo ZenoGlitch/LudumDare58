@@ -29,6 +29,7 @@ offset_bottom = 456.0
 text = "Quit"
 
 [node name="CreditsCanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TextEdit" type="TextEdit" parent="CreditsCanvasLayer"]
 offset_right = 1152.0

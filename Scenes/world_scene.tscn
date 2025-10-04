@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://321s7gsavhfk"]
+
+[ext_resource type="PackedScene" uid="uid://dwav7gy0m7tjw" path="res://Scenes/scanner.tscn" id="1_oy506"]
+
+[node name="WorldScene" type="Node2D"]
+
+[node name="BackgroundTextureRect" type="TextureRect" parent="."]
+offset_right = 1154.0
+offset_bottom = 647.0
+
+[node name="Scanner" parent="." instance=ExtResource("1_oy506")]
