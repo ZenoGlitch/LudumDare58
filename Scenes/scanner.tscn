@@ -104,7 +104,10 @@ position = Vector2(172, 348)
 shape = SubResource("RectangleShape2D_x4svg")
 
 [node name="IncorrectCodeTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.5
+
+[node name="ReportSpawnPoint" type="Node2D" parent="."]
+position = Vector2(433, 202)
 
 [connection signal="button_up" from="GridContainer/Button" to="." method="_on_button_button_up"]
 [connection signal="button_up" from="GridContainer/Button2" to="." method="_on_button_2_button_up"]
@@ -117,3 +120,4 @@ wait_time = 3.0
 [connection signal="button_up" from="GridContainer/Button9" to="." method="_on_button_9_button_up"]
 [connection signal="button_up" from="ConfirmButton" to="." method="_on_confirm_button_button_up"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

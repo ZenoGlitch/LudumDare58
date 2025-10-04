@@ -16,11 +16,9 @@ scale = Vector2(56.125, 55.125)
 texture = SubResource("PlaceholderTexture2D_rhhov")
 
 [node name="BookArea2D" type="Area2D" parent="Sprite2D"]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/BookArea2D"]
 position = Vector2(0.00187942, 0.000212669)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_rhhov")
 
 [connection signal="input_event" from="Sprite2D/BookArea2D" to="." method="_on_area_2d_input_event"]
