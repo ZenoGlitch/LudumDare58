@@ -15,6 +15,10 @@ run/main_scene="uid://dap4ayhc268nl"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*res://Scripts/Globals/globals.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

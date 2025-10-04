@@ -7,12 +7,6 @@ extends Control
 var enteredDigits = []
 const MAX_ENTERED_DIGITS : int = 4
 
-const profanityCode = [1,2,3,4]
-const romanceCode = [9,7,3,5]
-const medicineCode = [6,2,3,7]
-const magicCode = [6,6,6,6]
-const dolphinCode = [1,5,6,2]
-var allValidCodes = [profanityCode, romanceCode, medicineCode, magicCode, dolphinCode]
 var currentValidCodes = []
 
 const light_color_red : Color = Color(230, 0, 0, 255)
@@ -28,7 +22,7 @@ var report = preload("res://Scenes/report_paper.tscn")
 
 func _ready():
 	point_light_2d.set_color(light_color_white)
-	currentValidCodes = allValidCodes
+	currentValidCodes.push_back(Globals.allValidCodes[0])
 	incorrect_code_timer.timeout.connect(_on_incorrect_timer_timeout)
 	
 func _on_incorrect_timer_timeout():
@@ -66,34 +60,41 @@ func check_code_validity():
 func check_if_book_code_matches():
 	#Checking if book has code
 	var is_book_containing_banned_material = false
-	for n in currentValidCodes:
-		if n == last_scanned_book.code:
+	
+	for m in last_scanned_book.ban_flags:
+		if m != -1:
+			print(m)
 			is_book_containing_banned_material = true
-			break
+		
+	#for n in currentValidCodes:
+		#if n == last_scanned_book.code:
+			#is_book_containing_banned_material = true
+			#break
 		
 	if is_book_containing_banned_material:
 		print("book contains banned material..!")
-		#TODO: trigger printing of report here
-		var instancedReport = report.instantiate()
-		self.get_owner().add_child(instancedReport)
-		
-
-		var texture = load("res://Assets/IMG_6289.jpg")
-		
-		instancedReport.set_texture(texture)
-		
-		instancedReport.set_spawn_position(report_spawn_point.global_position)
+		spawn_report(is_book_containing_banned_material)
+		enteredDigits.clear()
 		
 	else:
 		print("book is clear from banned material")
-		#TODO: trigger printing of report here
-		report.instantiate()
-		#report.set_texture()
-		report.set_position()
-		
+		spawn_report(is_book_containing_banned_material)
 		enteredDigits.clear()
-		#scanner_awaiting_book_input = false
 
+
+func spawn_report(is_banned : bool):
+	var instancedReport = report.instantiate()
+	self.get_owner().add_child(instancedReport)
+	var texture
+	if is_banned:
+		texture = load("res://Assets/IMG_6289.jpg") #TODO:change to correct image
+	else:
+		texture = load("res://Assets/IMG_6289.jpg") #TODO:change to correct image
+		
+	instancedReport.set_texture(texture)
+	instancedReport.set_spawn_position(report_spawn_point.global_position)
+	
+	
 
 func _on_area_2d_area_entered(area):
 	#Check if colliding area belongs to book and act appropriately 
