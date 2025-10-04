@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwav7gy0m7tjw"]
+[gd_scene load_steps=4 format=3 uid="uid://dwav7gy0m7tjw"]
 
 [ext_resource type="Script" uid="uid://dwhtwit6xdn76" path="res://Scripts/scanner.gd" id="1_x4svg"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_x4svg"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4svg"]
+size = Vector2(233.125, 35)
 
 [node name="Scanner" type="Control"]
 layout_mode = 3
@@ -13,8 +19,10 @@ script = ExtResource("1_x4svg")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_right = 216.0
-offset_bottom = 217.0
+offset_left = 124.0
+offset_top = 86.0
+offset_right = 340.0
+offset_bottom = 303.0
 theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 5
 columns = 3
@@ -73,6 +81,31 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "9"
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(114, 129)
+scale = Vector2(19.25, 19.25)
+texture = SubResource("PlaceholderTexture2D_x4svg")
+
+[node name="ConfirmButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 16.0
+offset_top = 149.0
+offset_right = 102.0
+offset_bottom = 237.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Confirm
+"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(172, 348)
+shape = SubResource("RectangleShape2D_x4svg")
+
+[node name="IncorrectCodeTimer" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="button_up" from="GridContainer/Button" to="." method="_on_button_button_up"]
 [connection signal="button_up" from="GridContainer/Button2" to="." method="_on_button_2_button_up"]
 [connection signal="button_up" from="GridContainer/Button3" to="." method="_on_button_3_button_up"]
@@ -82,3 +115,5 @@ text = "9"
 [connection signal="button_up" from="GridContainer/Button7" to="." method="_on_button_7_button_up"]
 [connection signal="button_up" from="GridContainer/Button8" to="." method="_on_button_8_button_up"]
 [connection signal="button_up" from="GridContainer/Button9" to="." method="_on_button_9_button_up"]
+[connection signal="button_up" from="ConfirmButton" to="." method="_on_confirm_button_button_up"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

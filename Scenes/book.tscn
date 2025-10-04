@@ -1,3 +1,26 @@
-[gd_scene format=3 uid="uid://rwo2ae1g3tib"]
+[gd_scene load_steps=4 format=3 uid="uid://rwo2ae1g3tib"]
+
+[ext_resource type="Script" uid="uid://dmi83h4rhvt4u" path="res://Scripts/book.gd" id="1_rhhov"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rhhov"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhhov"]
+size = Vector2(0.996241, 0.999575)
 
 [node name="Book" type="Node2D"]
+script = ExtResource("1_rhhov")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(27.9375, 27.4375)
+scale = Vector2(56.125, 55.125)
+texture = SubResource("PlaceholderTexture2D_rhhov")
+
+[node name="BookArea2D" type="Area2D" parent="Sprite2D"]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/BookArea2D"]
+position = Vector2(0.00187942, 0.000212669)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_rhhov")
+
+[connection signal="input_event" from="Sprite2D/BookArea2D" to="." method="_on_area_2d_input_event"]

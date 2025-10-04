@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://321s7gsavhfk"]
+[gd_scene load_steps=3 format=3 uid="uid://321s7gsavhfk"]
 
 [ext_resource type="PackedScene" uid="uid://dwav7gy0m7tjw" path="res://Scenes/scanner.tscn" id="1_oy506"]
+[ext_resource type="PackedScene" uid="uid://rwo2ae1g3tib" path="res://Scenes/book.tscn" id="2_k1whg"]
 
 [node name="WorldScene" type="Node2D"]
 
@@ -9,3 +10,11 @@ offset_right = 1154.0
 offset_bottom = 647.0
 
 [node name="Scanner" parent="." instance=ExtResource("1_oy506")]
+
+[node name="Book" parent="." instance=ExtResource("2_k1whg")]
+position = Vector2(643, 261)
+code = [1, 2, 3, 4]
+
+[node name="Book2" parent="." instance=ExtResource("2_k1whg")]
+position = Vector2(847, 280)
+code = [5, 5, 5, 5]
